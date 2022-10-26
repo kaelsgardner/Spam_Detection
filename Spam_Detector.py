@@ -12,13 +12,13 @@ from sklearn.naive_bayes import MultinomialNB
 """Prepare data before training"""
 
 #Load dataset
-dataset = pd.read_csv('Dataset/emails.csv')
+dataset = pd.read_csv('emails.csv')
 print(f"Dataset head : \n{dataset.head()}\n")
 
-#Check for and remove duplicates
+#Remove duplicates
 dataset.drop_duplicates(inplace=True)
 
-#Clean data, tokenizing it into words/tokens
+#Clean data and tokenize it into words/tokens
 def process(text):
     nopunc = [char for char in text if char not in string.punctuation]
     nopunc = ''.join(nopunc)
